@@ -366,7 +366,7 @@ def process_report(report, results, path_remap):
     func_name = bug_step['FuncName']
 
     bug_code = get_line(file_path, bug_line, path_remap)
-
+    bug_classification = classify_line(bug_code, path_remap, file_path, bug_line)
     source_context = get_source_context(file_path, bug_line, path_remap)
     simple_steps = simplify_steps(steps, results, func_name, file_path, path_remap)
 
@@ -374,9 +374,7 @@ def process_report(report, results, path_remap):
         'File': remap_path(file_path, path_remap),
         'FuncName': func_name,
         'BugLine': bug_line,
-#        'bug_code': bug_code,
-#         'bug_classification': bug_classification,
-#        'nearby_bounds_checks': nearby_checks,
+        'bug_classification': bug_classification,
         'SourceContext': source_context,
         'DiagSteps': simple_steps
     }

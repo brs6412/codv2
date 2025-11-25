@@ -1,0 +1,237 @@
+{
+  "TotalBugs": 3,
+  "Reports": [
+    {
+      "File": "zstd/programs/util.c",
+      "FuncName": "UTIL_prepareFileList",
+      "BugLine": 667,
+      "bug_classification": {
+        "raw": "path[dirLength] = '/';",
+        "ast_type": "Assignment",
+        "type": "assignment",
+        "lvalue": "path[dirLength]",
+        "rvalue": "'/'",
+        "is_array_write": true,
+        "array_name": "path",
+        "array_index": "dirLength",
+        "array_accesses": [
+          {
+            "array": "path",
+            "index": "dirLength"
+          }
+        ]
+      },
+      "nearby_bounds_checks": [],
+      "SourceContext": {
+        "662": "        fnameLength = strlen(entry->d_name);",
+        "663": "        path = (char*) malloc(dirLength + fnameLength + 2);",
+        "664": "        if (!path) { closedir(dir); return 0; }",
+        "665": "        memcpy(path, dirName, dirLength);",
+        "666": "",
+        "667": "        path[dirLength] = '/';",
+        "668": "        memcpy(path+dirLength+1, entry->d_name, fnameLength);",
+        "669": "        pathLength = dirLength+1+fnameLength;",
+        "670": "        path[pathLength] = 0;",
+        "671": "",
+        "672": "        if (!followLinks && UTIL_isLink(path)) {"
+      },
+      "DiagSteps": {
+        "650": {
+          "Cur_FileName": "zstd/programs/util.c",
+          "Cur_FuncName": "UTIL_prepareFileList",
+          "code": "if (!(dir = opendir(dirName))) {",
+          "tips": [
+            "Branching to false branch"
+          ]
+        },
+        "657": {
+          "code": "while ((entry = readdir(dir)) != NULL) {",
+          "tips": [
+            "Unconditional branch",
+            "Taint transfer",
+            "Branching to true branch"
+          ]
+        },
+        "661": {
+          "code": "if (strcmp (entry->d_name, \"..\") == 0 ||strcmp (entry->d_name, \".\") == 0) continue;",
+          "tips": [
+            "Taint transfer",
+            "Branching to false branch",
+            "Taint transfer"
+          ]
+        },
+        "662": {
+          "code": "fnameLength = strlen(entry->d_name);",
+          "tips": [
+            "Taint transfer"
+          ]
+        },
+        "663": {
+          "code": "path = (char*) malloc(dirLength + fnameLength + 2);",
+          "tips": [
+            "Taint transfer"
+          ]
+        },
+        "664": {
+          "code": "if (!path) { closedir(dir); return 0; }",
+          "tips": [
+            "Branching to false branch"
+          ]
+        },
+        "665": {
+          "code": "memcpy(path, dirName, dirLength);",
+          "tips": [
+            "Branching to false branch"
+          ]
+        },
+        "667": {
+          "code": "path[dirLength] = '/';",
+          "tips": [
+            "Buffer overrun"
+          ]
+        }
+      }
+    },
+    {
+      "File": "zstd/programs/util.c",
+      "FuncName": "UTIL_prepareFileList",
+      "BugLine": 665,
+      "bug_classification": {
+        "raw": "memcpy(path, dirName, dirLength);",
+        "ast_type": "FuncCall",
+        "type": "function_call",
+        "function": "memcpy",
+        "arguments": [
+          "path",
+          "dirName",
+          "dirLength"
+        ]
+      },
+      "nearby_bounds_checks": [],
+      "SourceContext": {
+        "660": "        if (strcmp (entry->d_name, \"..\") == 0 ||",
+        "661": "            strcmp (entry->d_name, \".\") == 0) continue;",
+        "662": "        fnameLength = strlen(entry->d_name);",
+        "663": "        path = (char*) malloc(dirLength + fnameLength + 2);",
+        "664": "        if (!path) { closedir(dir); return 0; }",
+        "665": "        memcpy(path, dirName, dirLength);",
+        "666": "",
+        "667": "        path[dirLength] = '/';",
+        "668": "        memcpy(path+dirLength+1, entry->d_name, fnameLength);",
+        "669": "        pathLength = dirLength+1+fnameLength;",
+        "670": "        path[pathLength] = 0;"
+      },
+      "DiagSteps": {
+        "650": {
+          "Cur_FileName": "zstd/programs/util.c",
+          "Cur_FuncName": "UTIL_prepareFileList",
+          "code": "if (!(dir = opendir(dirName))) {",
+          "tips": [
+            "Branching to false branch"
+          ]
+        },
+        "657": {
+          "code": "while ((entry = readdir(dir)) != NULL) {",
+          "tips": [
+            "Unconditional branch",
+            "Taint transfer",
+            "Branching to true branch"
+          ]
+        },
+        "661": {
+          "code": "if (strcmp (entry->d_name, \"..\") == 0 ||strcmp (entry->d_name, \".\") == 0) continue;",
+          "tips": [
+            "Taint transfer",
+            "Branching to false branch",
+            "Taint transfer"
+          ]
+        },
+        "662": {
+          "code": "fnameLength = strlen(entry->d_name);",
+          "tips": [
+            "Taint transfer"
+          ]
+        },
+        "663": {
+          "code": "path = (char*) malloc(dirLength + fnameLength + 2);",
+          "tips": [
+            "Taint transfer"
+          ]
+        },
+        "664": {
+          "code": "if (!path) { closedir(dir); return 0; }",
+          "tips": [
+            "Branching to false branch"
+          ]
+        },
+        "665": {
+          "code": "memcpy(path, dirName, dirLength);",
+          "tips": [
+            "Branching to true branch",
+            "Buffer overrun"
+          ]
+        }
+      }
+    },
+    {
+      "File": "zstd/programs/util.c",
+      "FuncName": "mallocAndJoin2Dir",
+      "BugLine": 888,
+      "bug_classification": {
+        "raw": "trailingChar = *(buffer - 1);",
+        "ast_type": "Assignment",
+        "type": "assignment",
+        "lvalue": "trailingChar",
+        "rvalue": "*(buffer - 1)"
+      },
+      "nearby_bounds_checks": [],
+      "SourceContext": {
+        "883": "",
+        "884": "    if (dir2[0] == '.')",
+        "885": "        return outDirBuffer;",
+        "886": "",
+        "887": "    buffer = outDirBuffer + dir1Size;",
+        "888": "    trailingChar = *(buffer - 1);",
+        "889": "    if (trailingChar != PATH_SEP) {",
+        "890": "        *buffer = PATH_SEP;",
+        "891": "        buffer++;",
+        "892": "    }",
+        "893": "    memcpy(buffer, dir2, dir2Size);"
+      },
+      "DiagSteps": {
+        "877": {
+          "Cur_FileName": "zstd/programs/util.c",
+          "Cur_FuncName": "mallocAndJoin2Dir",
+          "code": "assert(dir1 != NULL && dir2 != NULL);",
+          "tips": [
+            "Branching to true branch"
+          ]
+        },
+        "879": {
+          "code": "CONTROL(outDirBuffer != NULL);",
+          "tips": [
+            "Branching to false branch"
+          ]
+        },
+        "881": {
+          "code": "memcpy(outDirBuffer, dir1, dir1Size);",
+          "tips": [
+            "Branching to false branch"
+          ]
+        },
+        "884": {
+          "code": "if (dir2[0] == '.')",
+          "tips": [
+            "Branching to false branch"
+          ]
+        },
+        "888": {
+          "code": "trailingChar = *(buffer - 1);",
+          "tips": [
+            "Buffer overrun"
+          ]
+        }
+      }
+    }
+  ]
+}
