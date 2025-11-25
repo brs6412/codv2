@@ -1,0 +1,223 @@
+{
+  "TotalBugs": 3,
+  "Reports": [
+    {
+      "File": "tcpdump/addrtoname.c",
+      "FuncName": "dnaddr_string",
+      "BugLine": 1268,
+      "SourceContext": {
+        "1263": "const char *",
+        "1264": "dnaddr_string(netdissect_options *ndo, u_short dnaddr)",
+        "1265": "{",
+        "1266": "\tstruct hnamemem *tp;",
+        "1267": "",
+        "1268": "\tfor (tp = &dnaddrtable[dnaddr & (HASHNAMESIZE-1)]; tp->nxt != NULL;",
+        "1269": "\t     tp = tp->nxt)",
+        "1270": "\t\tif (tp->addr == dnaddr)",
+        "1271": "\t\t\treturn (tp->name);",
+        "1272": "",
+        "1273": "\ttp->addr = dnaddr;"
+      },
+      "DiagSteps": {
+        "590": {
+          "Cur_FileName": "tcpdump/print-decnet.c",
+          "Cur_FuncName": "print_decnet_ctlmsg",
+          "code": "switch (mflags & RMF_CTLMASK) {",
+          "tips": [
+            "Branching (multiple)"
+          ]
+        },
+        "667": {
+          "code": "if (length < sizeof(struct ehellomsg))",
+          "tips": [
+            "Branching to false branch"
+          ]
+        },
+        "684": {
+          "code": "ND_PRINT(\"vers %u eco %u ueco %u src %s blksize %u rtr %s hello %u data %o\",vers, eco, ueco, dnaddr_string(ndo, src),blksize, dnaddr_string(ndo, dst), hello, other);",
+          "tips": [
+            "Calling trace related func"
+          ]
+        },
+        "1268": {
+          "Cur_FileName": "tcpdump/addrtoname.c",
+          "Cur_FuncName": "dnaddr_string",
+          "code": "for (tp = &dnaddrtable[dnaddr & (HASHNAMESIZE-1)]; tp->nxt != NULL;",
+          "tips": [
+            "Unconditional branch",
+            "Buffer overrun",
+            "Branching to true branch"
+          ]
+        },
+        "1270": {
+          "code": "if (tp->addr == dnaddr)",
+          "tips": [
+            "Branching to false branch"
+          ]
+        }
+      }
+    },
+    {
+      "File": "tcpdump/tcpdump.c",
+      "FuncName": "read_infile",
+      "BugLine": 1093,
+      "SourceContext": {
+        "1088": "\t\t\tfname, pcap_strerror(errno));",
+        "1089": "\tcc = read(fd, cp, (u_int)buf.st_size);",
+        "1090": "\tif (cc < 0)",
+        "1091": "\t\terror(\"read %s: %s\", fname, pcap_strerror(errno));",
+        "1092": "\tif (cc != buf.st_size)",
+        "1093": "\t\terror(\"short read %s (%d != %d)\", fname, (int) cc,",
+        "1094": "\t\t    (int)buf.st_size);",
+        "1095": "",
+        "1096": "\tclose(fd);",
+        "1097": "\t/* replace \"# comment\" with spaces */",
+        "1098": "\tfor (i = 0; i < cc; i++) {"
+      },
+      "DiagSteps": {
+        "1072": {
+          "Cur_FileName": "tcpdump/tcpdump.c",
+          "Cur_FuncName": "read_infile",
+          "code": "if (fd < 0)",
+          "tips": [
+            "Branching to false branch"
+          ]
+        },
+        "1075": {
+          "code": "if (our_fstat(fd, &buf) < 0)",
+          "tips": [
+            "Branching to false branch"
+          ]
+        },
+        "1082": {
+          "code": "if (buf.st_size > INT_MAX)",
+          "tips": [
+            "Branching to false branch"
+          ]
+        },
+        "1086": {
+          "code": "if (cp == NULL)",
+          "tips": [
+            "Branching to false branch"
+          ]
+        },
+        "1089": {
+          "code": "cc = read(fd, cp, (u_int)buf.st_size);",
+          "tips": [
+            "Taint transfer"
+          ]
+        },
+        "1090": {
+          "code": "if (cc < 0)",
+          "tips": [
+            "Branching to false branch"
+          ]
+        },
+        "1092": {
+          "code": "if (cc != buf.st_size)",
+          "tips": [
+            "Branching to false branch"
+          ]
+        },
+        "1098": {
+          "code": "for (i = 0; i < cc; i++) {",
+          "tips": [
+            "Unconditional branch",
+            "Branching to false branch"
+          ]
+        },
+        "1103": {
+          "code": "cp[cc] = '\\0';",
+          "tips": [
+            "Buffer overrun"
+          ]
+        }
+      }
+    },
+    {
+      "File": "tcpdump/tcpdump.c",
+      "FuncName": "read_infile",
+      "BugLine": 1090,
+      "SourceContext": {
+        "1085": "\tcp = malloc((u_int)buf.st_size + 1);",
+        "1086": "\tif (cp == NULL)",
+        "1087": "\t\terror(\"malloc(%d) for %s: %s\", (u_int)buf.st_size + 1,",
+        "1088": "\t\t\tfname, pcap_strerror(errno));",
+        "1089": "\tcc = read(fd, cp, (u_int)buf.st_size);",
+        "1090": "\tif (cc < 0)",
+        "1091": "\t\terror(\"read %s: %s\", fname, pcap_strerror(errno));",
+        "1092": "\tif (cc != buf.st_size)",
+        "1093": "\t\terror(\"short read %s (%d != %d)\", fname, (int) cc,",
+        "1094": "\t\t    (int)buf.st_size);",
+        "1095": ""
+      },
+      "DiagSteps": {
+        "1072": {
+          "Cur_FileName": "tcpdump/tcpdump.c",
+          "Cur_FuncName": "read_infile",
+          "code": "if (fd < 0)",
+          "tips": [
+            "Branching to false branch"
+          ]
+        },
+        "1075": {
+          "code": "if (our_fstat(fd, &buf) < 0)",
+          "tips": [
+            "Branching to false branch"
+          ]
+        },
+        "1082": {
+          "code": "if (buf.st_size > INT_MAX)",
+          "tips": [
+            "Branching to false branch"
+          ]
+        },
+        "1086": {
+          "code": "if (cp == NULL)",
+          "tips": [
+            "Branching to false branch"
+          ]
+        },
+        "1089": {
+          "code": "cc = read(fd, cp, (u_int)buf.st_size);",
+          "tips": [
+            "Taint transfer"
+          ]
+        },
+        "1090": {
+          "code": "if (cc < 0)",
+          "tips": [
+            "Branching to false branch"
+          ]
+        },
+        "1092": {
+          "code": "if (cc != buf.st_size)",
+          "tips": [
+            "Branching to false branch"
+          ]
+        },
+        "1098": {
+          "code": "for (i = 0; i < cc; i++) {",
+          "tips": [
+            "Unconditional branch",
+            "Branching to true branch"
+          ]
+        },
+        "1099": {
+          "code": "if (cp[i] == '#')",
+          "tips": [
+            "Branching to true branch"
+          ]
+        },
+        "1100": {
+          "code": "while (i < cc && cp[i] != '\\n')",
+          "tips": [
+            "Unconditional branch",
+            "Branching to true branch",
+            "Buffer overrun"
+          ]
+        }
+      }
+    }
+  ]
+}

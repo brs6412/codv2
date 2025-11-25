@@ -1,0 +1,227 @@
+{
+    "TotalBugs": 3,
+    "Reports": [
+        {
+            "DiagSteps": [
+                {
+                    "File": "/home/guoyiyuan/range/project_source/tcpdump/print-decnet.c",
+                    "Line": 590,
+                    "Tip": "Branching to false branch",
+                    "FuncName": "print_decnet_ctlmsg"
+                },
+                {
+                    "File": "/home/guoyiyuan/range/project_source/tcpdump/print-decnet.c",
+                    "Line": 590,
+                    "Tip": "Branching to false branch",
+                    "FuncName": "print_decnet_ctlmsg"
+                },
+                {
+                    "File": "/home/guoyiyuan/range/project_source/tcpdump/print-decnet.c",
+                    "Line": 590,
+                    "Tip": "Branching to false branch",
+                    "FuncName": "print_decnet_ctlmsg"
+                },
+                {
+                    "File": "/home/guoyiyuan/range/project_source/tcpdump/print-decnet.c",
+                    "Line": 590,
+                    "Tip": "Branching to true branch",
+                    "FuncName": "print_decnet_ctlmsg"
+                },
+                {
+                    "File": "/home/guoyiyuan/range/project_source/tcpdump/print-decnet.c",
+                    "Line": 667,
+                    "Tip": "Branching to false branch",
+                    "FuncName": "print_decnet_ctlmsg"
+                },
+                {
+                    "File": "/home/guoyiyuan/range/project_source/tcpdump/print-decnet.c",
+                    "Line": 682,
+                    "Tip": "",
+                    "FuncName": "print_decnet_ctlmsg"
+                },
+                {
+                    "File": "/home/guoyiyuan/range/project_source/tcpdump/addrtoname.c",
+                    "Line": 1268,
+                    "Tip": "Unconditional branch",
+                    "FuncName": "dnaddr_string"
+                },
+                {
+                    "File": "/home/guoyiyuan/range/project_source/tcpdump/addrtoname.c",
+                    "Line": 1268,
+                    "Tip": "Buffer overrun",
+                    "FuncName": "dnaddr_string"
+                },
+                {
+                    "File": "/home/guoyiyuan/range/project_source/tcpdump/addrtoname.c",
+                    "Line": 1268,
+                    "Tip": "Branching to true branch",
+                    "FuncName": "dnaddr_string"
+                },
+                {
+                    "File": "/home/guoyiyuan/range/project_source/tcpdump/addrtoname.c",
+                    "Line": 1270,
+                    "Tip": "Branching to false branch",
+                    "FuncName": "dnaddr_string"
+                },
+                {
+                    "File": "/home/guoyiyuan/range/project_source/tcpdump/addrtoname.c",
+                    "Line": 1268,
+                    "Tip": "Unconditional branch",
+                    "FuncName": "dnaddr_string"
+                },
+                {
+                    "File": "/home/guoyiyuan/range/project_source/tcpdump/addrtoname.c",
+                    "Line": 1268,
+                    "Tip": "Buffer overrun",
+                    "FuncName": "dnaddr_string"
+                }
+            ]
+        },
+        {
+            "DiagSteps": [
+                {
+                    "File": "/home/guoyiyuan/range/project_source/tcpdump/tcpdump.c",
+                    "Line": 1062,
+                    "Tip": "Branching to false branch",
+                    "FuncName": "read_infile"
+                },
+                {
+                    "File": "/home/guoyiyuan/range/project_source/tcpdump/tcpdump.c",
+                    "Line": 1065,
+                    "Tip": "Branching to false branch",
+                    "FuncName": "read_infile"
+                },
+                {
+                    "File": "/home/guoyiyuan/range/project_source/tcpdump/tcpdump.c",
+                    "Line": 1072,
+                    "Tip": "Branching to false branch",
+                    "FuncName": "read_infile"
+                },
+                {
+                    "File": "/home/guoyiyuan/range/project_source/tcpdump/tcpdump.c",
+                    "Line": 1076,
+                    "Tip": "Branching to false branch",
+                    "FuncName": "read_infile"
+                },
+                {
+                    "File": "/home/guoyiyuan/range/project_source/tcpdump/tcpdump.c",
+                    "Line": 1079,
+                    "Tip": "Taint transfer",
+                    "FuncName": "read_infile"
+                },
+                {
+                    "File": "/home/guoyiyuan/range/project_source/tcpdump/tcpdump.c",
+                    "Line": 1080,
+                    "Tip": "Branching to false branch",
+                    "FuncName": "read_infile"
+                },
+                {
+                    "File": "/home/guoyiyuan/range/project_source/tcpdump/tcpdump.c",
+                    "Line": 1082,
+                    "Tip": "Branching to false branch",
+                    "FuncName": "read_infile"
+                },
+                {
+                    "File": "/home/guoyiyuan/range/project_source/tcpdump/tcpdump.c",
+                    "Line": 1088,
+                    "Tip": "Unconditional branch",
+                    "FuncName": "read_infile"
+                },
+                {
+                    "File": "/home/guoyiyuan/range/project_source/tcpdump/tcpdump.c",
+                    "Line": 1088,
+                    "Tip": "Branching to false branch",
+                    "FuncName": "read_infile"
+                },
+                {
+                    "File": "/home/guoyiyuan/range/project_source/tcpdump/tcpdump.c",
+                    "Line": 1093,
+                    "Tip": "Buffer overrun",
+                    "FuncName": "read_infile"
+                }
+            ]
+        },
+        {
+            "DiagSteps": [
+                {
+                    "File": "/home/guoyiyuan/range/project_source/tcpdump/tcpdump.c",
+                    "Line": 1062,
+                    "Tip": "Branching to false branch",
+                    "FuncName": "read_infile"
+                },
+                {
+                    "File": "/home/guoyiyuan/range/project_source/tcpdump/tcpdump.c",
+                    "Line": 1065,
+                    "Tip": "Branching to false branch",
+                    "FuncName": "read_infile"
+                },
+                {
+                    "File": "/home/guoyiyuan/range/project_source/tcpdump/tcpdump.c",
+                    "Line": 1072,
+                    "Tip": "Branching to false branch",
+                    "FuncName": "read_infile"
+                },
+                {
+                    "File": "/home/guoyiyuan/range/project_source/tcpdump/tcpdump.c",
+                    "Line": 1076,
+                    "Tip": "Branching to false branch",
+                    "FuncName": "read_infile"
+                },
+                {
+                    "File": "/home/guoyiyuan/range/project_source/tcpdump/tcpdump.c",
+                    "Line": 1079,
+                    "Tip": "Taint transfer",
+                    "FuncName": "read_infile"
+                },
+                {
+                    "File": "/home/guoyiyuan/range/project_source/tcpdump/tcpdump.c",
+                    "Line": 1080,
+                    "Tip": "Branching to false branch",
+                    "FuncName": "read_infile"
+                },
+                {
+                    "File": "/home/guoyiyuan/range/project_source/tcpdump/tcpdump.c",
+                    "Line": 1082,
+                    "Tip": "Branching to false branch",
+                    "FuncName": "read_infile"
+                },
+                {
+                    "File": "/home/guoyiyuan/range/project_source/tcpdump/tcpdump.c",
+                    "Line": 1088,
+                    "Tip": "Unconditional branch",
+                    "FuncName": "read_infile"
+                },
+                {
+                    "File": "/home/guoyiyuan/range/project_source/tcpdump/tcpdump.c",
+                    "Line": 1088,
+                    "Tip": "Branching to true branch",
+                    "FuncName": "read_infile"
+                },
+                {
+                    "File": "/home/guoyiyuan/range/project_source/tcpdump/tcpdump.c",
+                    "Line": 1089,
+                    "Tip": "Branching to true branch",
+                    "FuncName": "read_infile"
+                },
+                {
+                    "File": "/home/guoyiyuan/range/project_source/tcpdump/tcpdump.c",
+                    "Line": 1090,
+                    "Tip": "Unconditional branch",
+                    "FuncName": "read_infile"
+                },
+                {
+                    "File": "/home/guoyiyuan/range/project_source/tcpdump/tcpdump.c",
+                    "Line": 1090,
+                    "Tip": "Branching to true branch",
+                    "FuncName": "read_infile"
+                },
+                {
+                    "File": "/home/guoyiyuan/range/project_source/tcpdump/tcpdump.c",
+                    "Line": 1090,
+                    "Tip": "Buffer overrun",
+                    "FuncName": "read_infile"
+                }
+            ]
+        }
+    ]
+}

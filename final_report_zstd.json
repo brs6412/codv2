@@ -1,0 +1,221 @@
+{
+    "TotalBugs": 3,
+    "Reports": [
+        {
+            "DiagSteps": [
+                {
+                    "File": "/home/guoyiyuan.gyy/range/numerical/project_source/zstd/programs/util.c",
+                    "Line": 650,
+                    "Tip": "Branching to false branch",
+                    "FuncName": "UTIL_prepareFileList"
+                },
+                {
+                    "File": "/home/guoyiyuan.gyy/range/numerical/project_source/zstd/programs/util.c",
+                    "Line": 657,
+                    "Tip": "Unconditional branch",
+                    "FuncName": "UTIL_prepareFileList"
+                },
+                {
+                    "File": "/home/guoyiyuan.gyy/range/numerical/project_source/zstd/programs/util.c",
+                    "Line": 0,
+                    "Tip": "Unconditional branch",
+                    "FuncName": "UTIL_prepareFileList"
+                },
+                {
+                    "File": "/home/guoyiyuan.gyy/range/numerical/project_source/zstd/programs/util.c",
+                    "Line": 657,
+                    "Tip": "Taint transfer",
+                    "FuncName": "UTIL_prepareFileList"
+                },
+                {
+                    "File": "/home/guoyiyuan.gyy/range/numerical/project_source/zstd/programs/util.c",
+                    "Line": 657,
+                    "Tip": "Branching to true branch",
+                    "FuncName": "UTIL_prepareFileList"
+                },
+                {
+                    "File": "/home/guoyiyuan.gyy/range/numerical/project_source/zstd/programs/util.c",
+                    "Line": 660,
+                    "Tip": "Taint transfer",
+                    "FuncName": "UTIL_prepareFileList"
+                },
+                {
+                    "File": "/home/guoyiyuan.gyy/range/numerical/project_source/zstd/programs/util.c",
+                    "Line": 660,
+                    "Tip": "Branching to false branch",
+                    "FuncName": "UTIL_prepareFileList"
+                },
+                {
+                    "File": "/home/guoyiyuan.gyy/range/numerical/project_source/zstd/programs/util.c",
+                    "Line": 661,
+                    "Tip": "Taint transfer",
+                    "FuncName": "UTIL_prepareFileList"
+                },
+                {
+                    "File": "/home/guoyiyuan.gyy/range/numerical/project_source/zstd/programs/util.c",
+                    "Line": 660,
+                    "Tip": "Branching to false branch",
+                    "FuncName": "UTIL_prepareFileList"
+                },
+                {
+                    "File": "/home/guoyiyuan.gyy/range/numerical/project_source/zstd/programs/util.c",
+                    "Line": 662,
+                    "Tip": "Taint transfer",
+                    "FuncName": "UTIL_prepareFileList"
+                },
+                {
+                    "File": "/home/guoyiyuan.gyy/range/numerical/project_source/zstd/programs/util.c",
+                    "Line": 663,
+                    "Tip": "Taint transfer",
+                    "FuncName": "UTIL_prepareFileList"
+                },
+                {
+                    "File": "/home/guoyiyuan.gyy/range/numerical/project_source/zstd/programs/util.c",
+                    "Line": 664,
+                    "Tip": "Branching to false branch",
+                    "FuncName": "UTIL_prepareFileList"
+                },
+                {
+                    "File": "/home/guoyiyuan.gyy/range/numerical/project_source/zstd/programs/util.c",
+                    "Line": 665,
+                    "Tip": "Branching to false branch",
+                    "FuncName": "UTIL_prepareFileList"
+                },
+                {
+                    "File": "/home/guoyiyuan.gyy/range/numerical/project_source/zstd/programs/util.c",
+                    "Line": 667,
+                    "Tip": "Buffer overrun",
+                    "FuncName": "UTIL_prepareFileList"
+                }
+            ]
+        },
+        {
+            "DiagSteps": [
+                {
+                    "File": "/home/guoyiyuan.gyy/range/numerical/project_source/zstd/programs/util.c",
+                    "Line": 650,
+                    "Tip": "Branching to false branch",
+                    "FuncName": "UTIL_prepareFileList"
+                },
+                {
+                    "File": "/home/guoyiyuan.gyy/range/numerical/project_source/zstd/programs/util.c",
+                    "Line": 657,
+                    "Tip": "Unconditional branch",
+                    "FuncName": "UTIL_prepareFileList"
+                },
+                {
+                    "File": "/home/guoyiyuan.gyy/range/numerical/project_source/zstd/programs/util.c",
+                    "Line": 0,
+                    "Tip": "Unconditional branch",
+                    "FuncName": "UTIL_prepareFileList"
+                },
+                {
+                    "File": "/home/guoyiyuan.gyy/range/numerical/project_source/zstd/programs/util.c",
+                    "Line": 657,
+                    "Tip": "Taint transfer",
+                    "FuncName": "UTIL_prepareFileList"
+                },
+                {
+                    "File": "/home/guoyiyuan.gyy/range/numerical/project_source/zstd/programs/util.c",
+                    "Line": 657,
+                    "Tip": "Branching to true branch",
+                    "FuncName": "UTIL_prepareFileList"
+                },
+                {
+                    "File": "/home/guoyiyuan.gyy/range/numerical/project_source/zstd/programs/util.c",
+                    "Line": 660,
+                    "Tip": "Taint transfer",
+                    "FuncName": "UTIL_prepareFileList"
+                },
+                {
+                    "File": "/home/guoyiyuan.gyy/range/numerical/project_source/zstd/programs/util.c",
+                    "Line": 660,
+                    "Tip": "Branching to false branch",
+                    "FuncName": "UTIL_prepareFileList"
+                },
+                {
+                    "File": "/home/guoyiyuan.gyy/range/numerical/project_source/zstd/programs/util.c",
+                    "Line": 661,
+                    "Tip": "Taint transfer",
+                    "FuncName": "UTIL_prepareFileList"
+                },
+                {
+                    "File": "/home/guoyiyuan.gyy/range/numerical/project_source/zstd/programs/util.c",
+                    "Line": 660,
+                    "Tip": "Branching to false branch",
+                    "FuncName": "UTIL_prepareFileList"
+                },
+                {
+                    "File": "/home/guoyiyuan.gyy/range/numerical/project_source/zstd/programs/util.c",
+                    "Line": 662,
+                    "Tip": "Taint transfer",
+                    "FuncName": "UTIL_prepareFileList"
+                },
+                {
+                    "File": "/home/guoyiyuan.gyy/range/numerical/project_source/zstd/programs/util.c",
+                    "Line": 663,
+                    "Tip": "Taint transfer",
+                    "FuncName": "UTIL_prepareFileList"
+                },
+                {
+                    "File": "/home/guoyiyuan.gyy/range/numerical/project_source/zstd/programs/util.c",
+                    "Line": 664,
+                    "Tip": "Branching to false branch",
+                    "FuncName": "UTIL_prepareFileList"
+                },
+                {
+                    "File": "/home/guoyiyuan.gyy/range/numerical/project_source/zstd/programs/util.c",
+                    "Line": 665,
+                    "Tip": "Branching to true branch",
+                    "FuncName": "UTIL_prepareFileList"
+                },
+                {
+                    "File": "/home/guoyiyuan.gyy/range/numerical/project_source/zstd/programs/util.c",
+                    "Line": 665,
+                    "Tip": "Buffer overrun",
+                    "FuncName": "UTIL_prepareFileList"
+                }
+            ]
+        },
+        {
+            "DiagSteps": [
+                {
+                    "File": "/home/guoyiyuan.gyy/range/numerical/project_source/zstd/programs/util.c",
+                    "Line": 877,
+                    "Tip": "Branching to true branch",
+                    "FuncName": "mallocAndJoin2Dir"
+                },
+                {
+                    "File": "/home/guoyiyuan.gyy/range/numerical/project_source/zstd/programs/util.c",
+                    "Line": 877,
+                    "Tip": "Branching to true branch",
+                    "FuncName": "mallocAndJoin2Dir"
+                },
+                {
+                    "File": "/home/guoyiyuan.gyy/range/numerical/project_source/zstd/programs/util.c",
+                    "Line": 879,
+                    "Tip": "Branching to false branch",
+                    "FuncName": "mallocAndJoin2Dir"
+                },
+                {
+                    "File": "/home/guoyiyuan.gyy/range/numerical/project_source/zstd/programs/util.c",
+                    "Line": 881,
+                    "Tip": "Branching to false branch",
+                    "FuncName": "mallocAndJoin2Dir"
+                },
+                {
+                    "File": "/home/guoyiyuan.gyy/range/numerical/project_source/zstd/programs/util.c",
+                    "Line": 884,
+                    "Tip": "Branching to false branch",
+                    "FuncName": "mallocAndJoin2Dir"
+                },
+                {
+                    "File": "/home/guoyiyuan.gyy/range/numerical/project_source/zstd/programs/util.c",
+                    "Line": 888,
+                    "Tip": "Buffer overrun",
+                    "FuncName": "mallocAndJoin2Dir"
+                }
+            ]
+        }
+    ]
+}
