@@ -104,7 +104,7 @@
         "1089": {
           "code": "cc = read(fd, cp, (u_int)buf.st_size);",
           "tips": [
-            "Taint transfer"
+            "Origin of tainted data"
           ]
         },
         "1090": {
@@ -181,7 +181,7 @@
         "1089": {
           "code": "cc = read(fd, cp, (u_int)buf.st_size);",
           "tips": [
-            "Taint transfer"
+            "Origin of tainted data"
           ]
         },
         "1090": {

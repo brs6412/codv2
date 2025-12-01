@@ -180,7 +180,7 @@ def analyze_node(node):
         result['type'] = 'other'
     return result
 
-def handle_multiline(file_path, line_num):
+def handle_multiline(file_path, line_num, path_remap):
     real_path = remap_path(file_path, path_remap)
     try:
         with open(real_path, 'r') as f:
@@ -232,7 +232,7 @@ def handle_multiline(file_path, line_num):
     except:
         return None
 
-def parse_line(code_line, file_path=None, line_num=None):
+def parse_line(code_line, path_remap, file_path=None, line_num=None):
     if not code_line or not code_line.strip():
         return {'type': 'empty'}
 
@@ -243,7 +243,7 @@ def parse_line(code_line, file_path=None, line_num=None):
             return analyze_node(body[0])
     except Exception as e:
         if file_path and line_num:
-            complete = handle_multiline(file_path, line_num)
+            complete = handle_multiline(file_path, line_num, path_remap)
             if complete and complete != code_line:
                 try:
                     ast = parser.parse(wrap_statment(complete))
@@ -291,7 +291,7 @@ def classify_line(line, path_remap, file_path=None, line_num=None):
     if expanded != line:
         result['expanded'] = expanded
 
-    parsed = parse_line(expanded, file_path, line_num)
+    parsed = parse_line(expanded, path_remap, file_path, line_num)
     result.update(parsed)
 
     if parsed.get('type') not in ['empty', 'parse_error']:
@@ -305,6 +305,7 @@ def simplify_steps(steps, results, bug_func, bug_file, path_remap):
     simplified = {}
     last_seen_func = ''
     last_seen_file = ''
+    taint_code = None
     for step in steps:
         real_path = remap_path(step['File'], path_remap)
         line = step['Line']
@@ -337,7 +338,14 @@ def simplify_steps(steps, results, bug_func, bug_file, path_remap):
                 simplified[line]['Cur_FuncName'] = step['FuncName']
             simplified[line]['code'] = line_code
             simplified[line]['tips'] = []
-        simplified[line]['tips'].append(tip)
+        if tip == 'Taint transfer' and not taint_code:
+            simplified[line]['tips'].append('Origin of tainted data')
+            taint_code = line_code
+        elif tip == 'Taint transfer':
+            if all('Taint propagated' not in t for t in simplified[line]['tips']):
+                simplified[line]['tips'].append(f'Taint propagated from: {taint_code}')
+        else:
+            simplified[line]['tips'].append(tip)
     for code_info in simplified.values():
         tips = code_info['tips']
         branch_tips = [t for t in tips if t.startswith('Branching')]
@@ -374,7 +382,7 @@ def process_report(report, results, path_remap):
         'File': remap_path(file_path, path_remap),
         'FuncName': func_name,
         'BugLine': bug_line,
-        'bug_classification': bug_classification,
+#        'bug_classification': bug_classification,
         'SourceContext': source_context,
         'DiagSteps': simple_steps
     }

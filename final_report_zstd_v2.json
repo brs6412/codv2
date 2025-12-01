@@ -31,28 +31,27 @@
           "code": "while ((entry = readdir(dir)) != NULL) {",
           "tips": [
             "Unconditional branch",
-            "Taint transfer",
+            "Origin of tainted data",
             "Branching to true branch"
           ]
         },
         "661": {
           "code": "if (strcmp (entry->d_name, \"..\") == 0 ||strcmp (entry->d_name, \".\") == 0) continue;",
           "tips": [
-            "Taint transfer",
-            "Branching to false branch",
-            "Taint transfer"
+            "Taint propagated from: while ((entry = readdir(dir)) != NULL) {",
+            "Branching to false branch"
           ]
         },
         "662": {
           "code": "fnameLength = strlen(entry->d_name);",
           "tips": [
-            "Taint transfer"
+            "Taint propagated from: while ((entry = readdir(dir)) != NULL) {"
           ]
         },
         "663": {
           "code": "path = (char*) malloc(dirLength + fnameLength + 2);",
           "tips": [
-            "Taint transfer"
+            "Taint propagated from: while ((entry = readdir(dir)) != NULL) {"
           ]
         },
         "664": {
@@ -105,28 +104,27 @@
           "code": "while ((entry = readdir(dir)) != NULL) {",
           "tips": [
             "Unconditional branch",
-            "Taint transfer",
+            "Origin of tainted data",
             "Branching to true branch"
           ]
         },
         "661": {
           "code": "if (strcmp (entry->d_name, \"..\") == 0 ||strcmp (entry->d_name, \".\") == 0) continue;",
           "tips": [
-            "Taint transfer",
-            "Branching to false branch",
-            "Taint transfer"
+            "Taint propagated from: while ((entry = readdir(dir)) != NULL) {",
+            "Branching to false branch"
           ]
         },
         "662": {
           "code": "fnameLength = strlen(entry->d_name);",
           "tips": [
-            "Taint transfer"
+            "Taint propagated from: while ((entry = readdir(dir)) != NULL) {"
           ]
         },
         "663": {
           "code": "path = (char*) malloc(dirLength + fnameLength + 2);",
           "tips": [
-            "Taint transfer"
+            "Taint propagated from: while ((entry = readdir(dir)) != NULL) {"
           ]
         },
         "664": {
