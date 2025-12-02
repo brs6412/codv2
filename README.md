@@ -4,16 +4,16 @@ Cod v2 consumes the report structure defined by Cod Analyzer in [Precise Composi
 
 # Directory Structure
 
-`main.py` — entry point; processes a source directory and a JSON report.
-`BufferTrace.py` — aligns source locations with report entries.
-`final_report_[tcpdump|zstd].json` — original Cod Analyzer reports.
-`final_report_[tcpdump|zstd]_v2.json` — Cod v2 enhanced reports.
-`final_report_zstd_bloat.json` — example of excessive detail leading to report bloat.
+`main.py` — entry point; processes a source directory and a JSON report.  
+`BufferTrace.py` — aligns source locations with report entries.  
+`final_report_[tcpdump|zstd].json` — original Cod Analyzer reports.  
+`final_report_[tcpdump|zstd]_v2.json` — Cod v2 enhanced reports.  
+`final_report_zstd_bloat.json` — example of excessive detail leading to report bloat.  
 
 # Requirements
 
-Python 3
-`pycparser`
+Python 3  
+`pycparser`  
 
 # Usage
 
