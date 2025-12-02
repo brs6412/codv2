@@ -21,10 +21,15 @@ Python 3
 python3 main.py <src-dir> <report.json>
 ```
 
-`<src-dir>` contains the sources corresponding to the bitcode used for the original report.
+`<src-dir>` contains the sources corresponding to the bitcode used for the original report.  
 `<report.json>` is the Cod Analyzer output.
 
 # Output
 
 Enhanced report with added context and refined hints, written to `final_report_<src-dir>_v2.json`.
+
+# Notes
+
+For testing zstd and tcpdump, use the original reports found in this repo. Download the corresponding source code:  
+- [Zstd v1.5.2](https://github.com/facebook/zstd/releases/tag/v1.5.2)
 
